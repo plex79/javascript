@@ -1,0 +1,35 @@
+<script>
+	var p1wzrost = 170,
+		p1wiek = 30,
+		p2wzrost = 180,
+		p2wiek = 35,
+		p3wzrost = 165,
+		p3wiek = 31;
+
+		console.log(p1wzrost);
+		console.log(p1wiek);
+		console.log(p2wzrost);
+		console.log(p2wiek);
+		console.log(p3wzrost);
+		console.log(p3wiek);
+
+
+		var wynik1 = p1wzrost + p1wiek*5,
+			wynik2 = p2wzrost + p2wiek*5,
+			wynik3 = p3wzrost + p3wiek*5;
+
+		console.log(wynik1);
+		console.log(wynik2);
+		console.log(wynik3);
+
+		if(wynik1>wynik2 && wynik1>wynik3) {
+			console.log('wynik1 wygral ' + wynik1);
+		} else if (wynik2>wynik1 && wynik2>wynik3) {
+			console.log('wynik2 wygral ' + wynik2);
+		} else if (wynik3>wynik1 && wynik3>wynik2) {
+			console.log('wynik3 wygral ' + wynik3);
+		} else {
+			console.log('remi\'s');
+		}
+
+</script>
