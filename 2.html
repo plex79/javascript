@@ -1,4 +1,36 @@
 <script>
 
 
+
+
+function printFull(born) {
+
+	var teraz = 2017;
+	var ages = [];
+	var fAges = [];
+
+	for (var i=0; i<born.length; i++) {
+		var wiek = teraz - born[i];
+		ages.push(wiek);
+	}
+	console.log('ages ' + ages);
+
+	for (var i=0; i<ages.length; i++) {
+		if (ages[i] >= 18) {
+			console.log(ages[i] + ' dorosly');
+			fAges.push(true);
+		} else {
+			console.log(ages[i] + ' dziecko');
+			fAges.push(false);
+		}
+	}
+
+	return fAges;
+}
+
+var lataUr = [2000, 2002, 2004, 1990, 1980, 1970, 1955, 1977];
+
+var f1 = printFull(lataUr);
+var f2 = printFull([2012,2000,1998]);
+
 </script>
