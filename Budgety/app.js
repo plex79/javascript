@@ -1,7 +1,55 @@
 var budgetController = (function() {
 
-// var a = 1;
-// return a;
+	var Expense = function(id, description, value){
+		this.id = id;
+		this.description = description;
+		this.value = value;
+	};
+
+	var Income = function(id, description, value){
+		this.id = id;
+		this.description = description;
+		this.value = value;
+	};
+
+	var data = {
+		allItems: {
+			exp: [],
+			inc: []
+		},
+		totals: {
+			exp: 0,
+			inc: 0
+		}
+	};
+
+	return {
+		addItem: function(type, des, val) {
+
+			var newItem, ID;
+
+			if(data.allItems[type].length > 0) {
+				ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+			} else {
+				ID = 0;
+			}
+
+			if (type === 'exp') {
+				newItem =  new Expense(ID, des, val);
+			} else if (type === 'inc') {
+				newItem =  new Income(ID, des, val);
+			}
+
+			data.allItems[type].push(newItem);
+
+			return newItem;
+			
+		},
+
+		testing: function() {
+			console.log(data);
+		}
+	}
 
 })();
 
@@ -40,9 +88,6 @@ var UIController = (function() {
 
 var controller = (function(budgetCtrl, UICtrl) {
 
-	// console.log('odpalone');
-	// console.log(budgetCtrl + ' ' + UICtrl);
-
 	var setupEventListeners = function() {
 		var DOM = UICtrl.getDOMstrings();
 
@@ -54,12 +99,15 @@ var controller = (function(budgetCtrl, UICtrl) {
 		});
 	};
 
-	
-
 	var ctrlAddItem = function() {
 
-		var input = UICtrl.getInput();
+		var input, newItem;
+
+		input = UICtrl.getInput();
 		console.log(input);
+
+		newItem = budgetCtrl.addItem(input.type, input.description, input.value);
+
 	};
 
 	return {
