@@ -1,4 +1,4 @@
-var budgetController = (function() {
+var budgetController = (function () {
 
 	var Expense = function(id, description, value){
 		this.id = id;
@@ -80,13 +80,13 @@ var budgetController = (function() {
                 totalInc: data.totals.inc,
                 totalExp: data.totals.exp,
                 percentage: data.percentage
-            }
+            };
         },
         
 		testing: function() {
 			console.log(data);
 		}
-	}
+	};
 
 })();
 
